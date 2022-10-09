@@ -7,7 +7,7 @@ void printArray(int *p)
 }
 int main()
 {
-    int a[5] = {10, 14, 18, 22, 26};
+    int a[6] = {10, 14, 18, 22, 26,28};
     printArray(a);
     cout << endl;
     return 0;

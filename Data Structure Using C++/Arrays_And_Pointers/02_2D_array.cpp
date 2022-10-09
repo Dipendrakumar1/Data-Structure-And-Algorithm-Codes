@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
-void printArray(int (*p)[2][2], int rs, int cols)
+void printArray2(int (*p)[2])
 {
-    for (int i = 0; i < rs; i++)
+    for (int i = 0; i < 2; i++)
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < 2; j++)
         {
-            cout << *((p + i)+j) << " ";
+            cout << *(*(p + i) + j) << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
 }
 int main()
@@ -17,16 +17,8 @@ int main()
     int *p;
     // a store the address of first row
     p = *a;
-    //cout<<*(p+1);
-    for (int i = 0; i < 2; i++)
-    {
-        for (int j = 0; j < 2; j++)
-        {
-            cout << *((p + i)+j) << " ";
-        }
-        cout<<endl;
-    }
-  ///  printArray();
+    cout << "\n====Output====\n";
+    printArray2(a);
     cout << endl;
     return 0;
 }
