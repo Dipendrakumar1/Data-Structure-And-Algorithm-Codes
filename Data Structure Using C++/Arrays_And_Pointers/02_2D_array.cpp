@@ -14,9 +14,7 @@ void printArray2(int (*p)[2])
 int main()
 {
     int a[2][2] = {{10, 14}, {16, 17}};
-    int *p;
     // a store the address of first row
-    p = *a;
     cout << "\n====Output====\n";
     printArray2(a);
     cout << endl;
