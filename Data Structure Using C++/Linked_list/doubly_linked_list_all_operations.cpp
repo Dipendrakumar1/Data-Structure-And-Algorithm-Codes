@@ -126,7 +126,26 @@ void insertAtNthPosition(struct node **h,struct node **t,int data,int pos)
 }
 void deleteByValue(struct node **h,int data)
 {
-
+    struct node *ptr;
+    if(*h==NULL)
+    {
+        cout<<"List Is Empty."<<endl;
+    } 
+    else
+    {
+      ptr=*h;
+      while(ptr!=NULL)
+      {
+        if(ptr->data==data)
+        break;
+        ptr=ptr->next;
+      }
+      if(ptr==NULL)
+      {
+        cout<<"Data Not Found"<<endl;
+      }
+      
+    }
 }
 void deleteHead(struct node **h)
 {
@@ -157,6 +176,14 @@ void display(struct node *h)
 {
     if(h==NULL){
         cout<<"List Is Empty.\n"<<endl;
+    }
+    else
+    {
+        while(h!=NULL)
+        {
+            cout<<h->data<<" --> ";
+            h=h->next;
+        }
     }
 }
 int main()

@@ -24,8 +24,8 @@ void insert(int data,int pos)
    else
    {
     ptr=head;
-    int i=0;
-     while(i<pos-2 && ptr->next!=NULL) 
+    int i=1;
+     while(i<pos-1 && ptr->next!=NULL) 
      {
         ptr=ptr->next;
         i++;
@@ -61,6 +61,17 @@ void deletePos(int pos)
       ptr->next->prev=ptr->prev;
       free(ptr);
     }
+}
+void deleteTail(struct node **h,struct node **t)
+{
+   struct node *ptr=*h;
+   while(ptr->next!=NULL)
+   {
+    ptr=ptr->next;
+   }
+   ptr->prev->next=ptr->next;
+   *t=ptr->prev;
+   free(ptr);
 }
 void printList()
 {
@@ -102,18 +113,20 @@ int main()
            tail=cur;
         }
     }
-    cout<<"Enter Data To Be Insert: ";
-    int data;
-    cin>>data;
-    int pos;
-    cout<<"Enter Position At To Be Insert: ";
-    cin>>pos;
-    insert(data,pos);
+    // cout<<"Enter Data To Be Insert: ";
+    // int data;
+    // cin>>data;
+    // int pos;
+    // cout<<"Enter Position At To Be Insert: ";
+    // cin>>pos;
+    // insert(data,pos);
     printList();
-    cout<<"Enter Position  To Be Delete: ";
-    cin>>pos;
-    deletePos(pos);
+    deleteTail(&head,&tail);
     printList();
+    // cout<<"Enter Position  To Be Delete: ";
+    // cin>>pos;
+    // deletePos(pos);
+    // printList();
  
 return 0;
 }
